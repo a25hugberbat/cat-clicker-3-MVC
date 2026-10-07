@@ -55,18 +55,19 @@ let controller = {
 
 let view = {
     init: function() {
-        document.getElementById("cat-img").addEventListener("click", function(){
-            controller.sumarClick();
-        });
 
         view.renderLlista();
         view.renderGatoActual();
+        //AFEGEICO UN LISTENER AL GAT
+        document.getElementById("cat-img").addEventListener("click", function(){
+            controller.sumarClick();
+        });
     },
     renderLlista: function(){
         let datos=controller.getGatos();
         htmlStr=""
             datos.forEach((element,index) => {
-                htmlStr += `<li id='${index}' class="list-group-item list-group-item-action">${element.name}</li>`
+                htmlStr += `<li id='${index}' class="list-group-item list-group-item-action" style="cursor:pointer;">${element.name}</li>`
             });
             document.getElementById("cat-list").innerHTML=htmlStr;
 
